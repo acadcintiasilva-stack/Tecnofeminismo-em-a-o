@@ -1,0 +1,24 @@
+---
+title: "Tecnofeminismo em ação"
+---
+
+# Bem-vindas(os/es) ao meu site
+
+Este site foi criado com **Quarto**, usando arquivos Markdown
+do **MarkText** e **Obsidian** com o objetivo de expor os resultados da seleção feita após raspagem de dados da plataforma SciELO com a ferramenta Scielo v2. Ele reúne o código utilizado para selecionar artigos das revistas *Estudos Feministas* e *Cadernos Pagu* , seleção gerada a partir do comando *python extrair_artigos_com_palavras.py* feito no terminal via Visual Studio Code e o organograma produzido na ferramenta *Obsidian*.
+
+Navegue pelo menu acima para acessar:
+
+- **Código** usado na filtragem
+- **Resultados** com dados gerados no terminal
+- **Visualização** para conferir as representações visuais 
+
+---
+
+## 
+
+<div style="text-align: center;">
+  <img src="imagens/animacao.gif.gif" alt="Animação" width="400px">
+</div>
+
+---

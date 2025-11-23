@@ -1,0 +1,88 @@
+ 
+
+---
+
+Código utilizado
+---
+
+Aqui está o script trabalhado:
+
+```python
+# import json
+import re
+
+# Caminho do seu arquivo JSONL
+path = "Cadernos_Pagu.json" (nome do seu arquivo)
+
+# Palavras-alvo
+targets = ["tecnologia", "digital", "ciberespaço"]
+patterns = {t: re.compile(t + r"\w*", re.IGNORECASE) for t in targets}
+
+resultados = []
+
+with open(path, "r", encoding="utf-8") as f:
+    for line in f:
+        line = line.strip()
+        if not line:
+            continue
+
+        try:
+            obj = json.loads(line)
+        except:
+            continue
+
+        # TÍTULO
+        title = obj.get("article_title", "")
+
+        # RESUMO
+        abstracts = obj.get("abstracts", [])
+        abstract_text = " ".join(
+            a.get("text", "") 
+            for a in abstracts 
+            if isinstance(a, dict)
+        )
+
+        # PALAVRAS-CHAVE
+        keywords = obj.get("keywords", [])
+        keywords_text = " ".join(
+            " ".join(v) 
+            for kw in keywords if isinstance(kw, dict)
+            for v in kw.values()
+        )
+
+        # ANO
+        year = ""
+        pub_dates = obj.get("pub_dates", [])
+        for d in pub_dates:
+            if "year" in d:
+                year = d["year"]
+                break
+
+        # Texto combinado para busca
+        combined = f"{title} {abstract_text} {keywords_text}".lower()
+
+        # Buscar palavras
+        found_words = [w for w, p in patterns.items() if p.search(combined)]
+
+        if found_words:
+            resultados.append({
+                "title": title,
+                "year": year,
+                "found_words": found_words,
+                "abstract": abstract_text,
+                "keywords": keywords_text
+            })
+
+# Exibir resultados
+print("\n=== ARTIGOS QUE CONTÊM AS PALAVRAS-ALVO ===\n")
+for item in resultados:
+    print(f"Título: {item['title']}")
+    print(f"Ano: {item['year']}")
+    print(f"Palavras encontradas: {', '.join(item['found_words'])}")
+    print(f"Resumo: {item['abstract']}\n")
+    print("-" * 80)
+```
+
+---
+
+# 

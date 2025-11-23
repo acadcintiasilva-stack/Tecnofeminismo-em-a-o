@@ -1,0 +1,24 @@
+---
+title: "Exposição visual dos resultados encontrados"
+format: html
+---
+
+# Organograma produzido no Obsidian
+
+Nesta página você encontra as representações visuais relacionadas aos dados coletados das revistas **Cadernos Pagu** e **Revista Estudos Feministas**.
+
+---
+
+## 📘 Cadernos Pagu
+
+![Cadernos Pagu](imagens/Cadernos%20Pagu.png){width=600px}
+
+---
+
+## 📙 Revista Estudos Feministas
+
+![Revista Estudos Feministas](imagens/Revista%20Estudos%20Feministas.png){width=600px}
+
+---
+
+## 
